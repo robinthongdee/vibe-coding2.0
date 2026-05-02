@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous Feedback | Premium Experience</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main-wrapper">
+    <header>
+        <div class="header-content">
+            <span class="badge-top">v2.0 Beta</span>
+            <h1>Anonymous Feedback</h1>
+            <p>ร่วมสร้างสังคมที่ดีขึ้นด้วยความคิดเห็นที่จริงใจของคุณ</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Form Section -->
+        <section class="form-wrapper">
+            <form id="feedbackForm">
+                <h2>ส่งความคิดเห็นใหม่</h2>
+                
+                <div class="input-group">
+                    <label for="title">หัวข้อเรื่อง</label>
+                    <input type="text" id="title" placeholder="แจ้งปัญหา หรือข้อเสนอแนะ..." required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="message">รายละเอียด</label>
+                    <textarea id="message" maxlength="300" placeholder="อธิบายเพิ่มเติมเกี่ยวกับความคิดเห็นของคุณ..." required></textarea>
+                    <div class="char-count"><span id="char-num">0</span>/300</div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="category">หมวดหมู่</label>
+                        <select id="category">
+                            <option value="Suggestion">💡 ข้อเสนอแนะ</option>
+                            <option value="Complaint">🚨 ข้อร้องเรียน</option>
+                            <option value="Question">❓ สอบถาม</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="rating">ระดับความพึงพอใจ</label>
+                        <select id="rating">
+                            <option value="5">⭐⭐⭐⭐⭐ (ยอดเยี่ยม)</option>
+                            <option value="4">⭐⭐⭐⭐ (ดีมาก)</option>
+                            <option value="3">⭐⭐⭐ (พอใช้)</option>
+                            <option value="2">⭐⭐ (ควรปรับปรุง)</option>
+                            <option value="1">⭐ (ต้องแก้ไขด่วน)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <span>ส่งข้อมูลแบบนิรนาม</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                </button>
+            </form>
+        </section>
+
+        <!-- Feedback List Section -->
+        <section class="feedback-wrapper">
+            <div class="section-header">
+                <h2>ความคิดเห็นล่าสุด</h2>
+                <div id="stats" class="stats-badge">0 รายการ</div>
+            </div>
+            <div id="feedbackList">
+                <!-- ข้อมูลจะแสดงที่นี่ -->
+            </div>
+        </section>
+    </main>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sarabun:wght@300;400;600&display=swap');
+
+:root {
+    --primary: #4361ee;
+    --primary-hover: #3730a3;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --bg: #f3f4f6;
+    --glass: rgba(255, 255, 255, 0.8);
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', 'Sarabun', sans-serif;
+    background: var(--bg);
+    color: #1f2937;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* Header & Background ลูกเล่นใหม่ */
+header {
+    background: radial-gradient(circle at top right, #4361ee, #1e293b);
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.badge-top {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    backdrop-filter: blur(5px);
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.5px; }
+header p { font-weight: 300; opacity: 0.9; max-width: 500px; margin: 0 auto; }
+
+/* Layout */
+.container {
+    max-width: 1000px;
+    margin: -80px auto 60px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+@media (max-width: 850px) {
+    .container { grid-template-columns: 1fr; margin-top: -50px; }
+}
+
+/* Form Styles */
+.form-wrapper form {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    border: 1px solid white;
+    position: sticky;
+    top: 20px;
+}
+
+form h2 { font-size: 1.25rem; margin-bottom: 25px; color: #111827; }
+
+.input-group { margin-bottom: 20px; position: relative; }
+label { font-size: 13px; font-weight: 600; color: #6b7280; margin-bottom: 8px; display: block; }
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px 16px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.2s;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.15);
+    outline: none;
+}
+
+.char-count { text-align: right; font-size: 11px; color: #9ca3af; margin-top: 5px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(67, 97, 238, 0.4);
+}
+
+/* Feedback Card Design */
+.feedback-wrapper { background: transparent; }
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.stats-badge { background: #fff; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; box-shadow: var(--card-shadow); }
+
+.feedback-card {
+    background: white;
+    padding: 24px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid transparent;
+    transition: 0.3s;
+    position: relative;
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+.feedback-card:hover { transform: scale(1.02); border-color: #e5e7eb; }
+
+/* แยกสีด้วย Gradient ด้านข้าง */
+.card-suggestion { border-left: 6px solid var(--success); }
+.card-complaint { border-left: 6px solid var(--danger); }
+.card-question { border-left: 6px solid var(--warning); }
+
+.card-header { display: flex; justify-content: space-between; margin-bottom: 12px; }
+.category-pill { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.card-suggestion .category-pill { background: #ecfdf5; color: var(--success); }
+.card-complaint .category-pill { background: #fef2f2; color: var(--danger); }
+.card-question .category-pill { background: #fffbeb; color: var(--warning); }
+
+.delete-btn {
+    background: #f9fafb;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+.delete-btn:hover { background: #fee2e2; color: var(--danger); }
+
+.card-body h3 { font-size: 1.1rem; margin-bottom: 8px; color: #111827; }
+.card-body p { font-size: 15px; color: #4b5563; margin-bottom: 15px; }
+
+.card-footer { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #9ca3af; }
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #1e293b;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2000;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.empty-state { text-align: center; padding: 40px; color: #9ca3af; font-style: italic; }
